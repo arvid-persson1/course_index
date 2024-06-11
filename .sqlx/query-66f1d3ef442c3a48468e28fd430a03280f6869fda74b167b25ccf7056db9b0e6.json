@@ -1,0 +1,119 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO courses (code, name_se, name_en, url, points, pace, prerequisites, register_info, modules, period_start, period_end, site, language, difficulty, conduct)\n        SELECT * FROM UNNEST($1::CHARACTER(6)[], $2::TEXT[], $3::TEXT[], $4::TEXT[], $5::REAL[], $6::pace_enum[], $7::TEXT[], $8::TEXT[], $9::TEXT[], $10::SMALLINT[], $11::SMALLINT[], $12::site_enum[], $13::language_enum[], $14::difficulty_enum[], $15::TEXT[])",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "BpcharArray",
+        "TextArray",
+        "TextArray",
+        "TextArray",
+        "Float4Array",
+        {
+          "Custom": {
+            "name": "_pace_enum",
+            "kind": {
+              "Array": {
+                "Custom": {
+                  "name": "pace_enum",
+                  "kind": {
+                    "Enum": [
+                      "Day10",
+                      "Day12",
+                      "Day13",
+                      "Day16",
+                      "Day20",
+                      "Day25",
+                      "Day26",
+                      "Day33",
+                      "Day37",
+                      "Day50",
+                      "Day75",
+                      "Day80",
+                      "Day100",
+                      "Weekend25",
+                      "Mixed25",
+                      "Mixed50",
+                      "Mixed100"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "TextArray",
+        "TextArray",
+        "TextArray",
+        "Int2Array",
+        "Int2Array",
+        {
+          "Custom": {
+            "name": "_site_enum",
+            "kind": {
+              "Array": {
+                "Custom": {
+                  "name": "site_enum",
+                  "kind": {
+                    "Enum": [
+                      "Lulea",
+                      "Skelleftea",
+                      "Kiruna",
+                      "Pitea",
+                      "Stockholm",
+                      "LocationIndependent"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Custom": {
+            "name": "_language_enum",
+            "kind": {
+              "Array": {
+                "Custom": {
+                  "name": "language_enum",
+                  "kind": {
+                    "Enum": [
+                      "Swedish",
+                      "English"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "Custom": {
+            "name": "_difficulty_enum",
+            "kind": {
+              "Array": {
+                "Custom": {
+                  "name": "difficulty_enum",
+                  "kind": {
+                    "Enum": [
+                      "Undergraduate",
+                      "IntroductoryUndergraduate",
+                      "ContinuationAdvanced",
+                      "Advanced",
+                      "ContinuationUndergraduate",
+                      "Preparatory"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "TextArray"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "66f1d3ef442c3a48468e28fd430a03280f6869fda74b167b25ccf7056db9b0e6"
+}

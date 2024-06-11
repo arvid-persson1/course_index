@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ name_se }}</h1>
+
+{% if let Some(name_en) = name_en %}
+    <h2>{{ name_en }}</h2>
+{% endif %}
+
+<p>Kod: {{ code }}</p>
+
+<p>Poäng: {{ points }}</p>
+
+{% if let Some(pace) = pace %}
+    <p>Studieform: {{ pace }}</p>
+{% endif %}
+
+{% if let Some(prerequisites) = prerequisites %}
+    <p>Förkunskapskrav: {{ prerequisites }}</p>
+{% endif %}
+
+{% if let Some(register_info) = register_info %}
+    <p>Sökinformation: {{ register_info }}</p>
+{% endif %}
+
+{% if let Some(modules) = modules %}
+    <p>Modules: {{ modules }}</p>
+{% endif %}
+
+{% if let Some(periods) = periods %}
+    <p>Period: {{ periods }}</p>
+{% endif %}
+
+{% if let Some(site) = site %}
+    <p>Studieort: {{ site }}</p>
+{% endif %}
+
+{% if let Some(language) = language %}
+    <p>Språk: {{ language }}</p>
+{% endif %}
+
+<p>Typ: {{ difficulty }}</p>
+
+{% if !categories.is_empty() %}
+    <div>
+        Kategorier:
+        {% for category in categories %}
+            <p>{{ category }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if let Some(conduct) = conduct %}
+    <p>Genomförande: {{ conduct }}</p>
+{% endif %}
+
+<a href="{{ url }}">Visa på LTU:s hemsida</a>
+</body>
+</html>
